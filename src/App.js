@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
+import React from "react";
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  useParams
+} from "react-router-dom";
+
 import './App.css';
 
-function App() {
+import Layout from './pages/layout/Layout';
+
+
+export default function App() {
+  const meta = document.createElement("meta");
+  meta.name = "description"
+  meta.content = "hello"
+  console.log(meta)
+  document.head.appendChild(meta)
+  document.title = "App"
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <React.StrictMode>
+        <Layout />
+      </React.StrictMode>
+    </BrowserRouter>
   );
 }
-
-export default App;
