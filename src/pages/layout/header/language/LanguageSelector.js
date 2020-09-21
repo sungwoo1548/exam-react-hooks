@@ -15,7 +15,7 @@ export default function LanguageSelector() {
       defaultLanguage = window.navigator.language.substring(0, 2);
     }
     userLanguage !== defaultLanguage && userLanguageChange(defaultLanguage);
-  }, [userLanguageChange]);
+  }, [userLanguage, userLanguageChange]);
 
   return (
     <select
