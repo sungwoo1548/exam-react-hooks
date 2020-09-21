@@ -10,6 +10,8 @@ import {
 
 import './App.css';
 
+import { LanguageProvider } from './language/Language';
+
 import Layout from './pages/layout/Layout';
 
 
@@ -21,10 +23,12 @@ export default function App() {
   document.head.appendChild(meta)
   document.title = "App"
   return (
-    <BrowserRouter>
-      <React.StrictMode>
-        <Layout />
-      </React.StrictMode>
-    </BrowserRouter>
+    <LanguageProvider>
+      <BrowserRouter>
+        <React.StrictMode>
+          <Layout />
+        </React.StrictMode>
+      </BrowserRouter>
+    </LanguageProvider>
   );
 }

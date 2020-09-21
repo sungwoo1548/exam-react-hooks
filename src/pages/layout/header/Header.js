@@ -1,10 +1,15 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
+import { Text } from '../../../language/Text';
 
 import styles from './Header.module.css';
 
+import LanguageSelector from './language/LanguageSelector';
+
 export default function Header() {
+  const [state, setState] = useState("")
   const _mouseOver = (e) => {
+    setState("")
   }
   const _mouseOut = (e) => {
   }
@@ -19,14 +24,14 @@ export default function Header() {
             <NavLink className={styles.headerLogo} to="/">LOGO</NavLink>
           </div>
           <div className={styles.headerOption}>
-            <div><input placeholder={"검색창"} /></div>
+            <div><input placeholder={Text({ location: "header_menu", word: "검색창" })} /></div>
             <div>
-              <span>언어선택</span>
+              <LanguageSelector />
             </div>
-            <div>멥버십</div>
+            <div><Text location="header_menu" word="맴버십"/></div>
             <div className={styles.headerOption_Login}>
-              <div>로그인</div>
-              <div>무료 회원가입</div>
+              <div><Text location="header_menu" word="로그인" /></div>
+              <div><Text location="header_menu" word="무료회원가입"/></div>
               {/* <div>유저 아이콘</div> */}
             </div>
           </div>
@@ -38,7 +43,7 @@ export default function Header() {
                 className={styles.menuItem}
                 to="/channelranking"
                 activeClassName={styles.menuItem_active}>
-                <span>채널 순위</span>
+                <span><Text location="header_menu" word="채널순위"/></span>
                 <span className={styles.menuItemIcon}>▼</span>
                 <span className={styles.menuItemIcon_hover}>▲</span>
               </NavLink>
@@ -48,7 +53,7 @@ export default function Header() {
                 className={styles.menuItem}
                 to={{ pathname: "/todayvideos" }}
                 activeClassName={styles.menuItem_active}>
-                영상 순위
+                <Text location="header_menu" word="영상순위"/>
                 <span className={styles.menuItemIcon}>▼</span>
                 <span className={styles.menuItemIcon_hover}>▲</span>
               </NavLink>
@@ -58,7 +63,7 @@ export default function Header() {
                 className={styles.menuItem}
                 to="/post"
                 activeClassName={styles.menuItem_active}>
-                인사이트
+                <Text location="header_menu" word="인사이트"/>
                 <span className={styles.menuItemIcon}>▼</span>
                 <span className={styles.menuItemIcon_hover}>▲</span>
               </NavLink>
