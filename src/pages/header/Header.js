@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { Text } from '../../../language/Text';
+import { Text } from '../../language/Text';
 
 import styles from './Header.module.css';
 
@@ -11,10 +11,11 @@ export default function Header() {
   }
   const _mouseOut = (e) => {
   }
+
   return (
     <header >
       <div id="debug" style={{ backgroundColor: "rgb(155,155,155)" }}>
-        <div >현재경로 : {useLocation().pathname}</div>
+        <div >현재경로 : {useLocation().pathname}{useLocation().search}</div>
       </div>
       <div className={styles.headerWrapper}>
         <div className={styles.headerContainer}>
@@ -59,7 +60,7 @@ export default function Header() {
             <li className={styles.menuItemWrapper}>
               <NavLink
                 className={styles.menuItem}
-                to="/post"
+                to={`/post/list/?category=전체`}
                 activeClassName={styles.menuItem_active}>
                 <Text location="header_menu" word="인사이트" />
                 <span className={styles.menuItemIcon}>▼</span>

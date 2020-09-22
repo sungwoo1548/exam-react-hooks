@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 
-import { languageOptions } from '../../../../language/languages';
-import { LanguageContext } from '../../../../language/Language';
+import { languageOptions } from '../../../language/languages';
+import { LanguageContext } from '../../../language/Language';
 
 export default function LanguageSelector() {
   const { userLanguage, userLanguageChange } = useContext(LanguageContext);

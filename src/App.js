@@ -18,9 +18,7 @@ export default function App() {
   return (
     <LanguageProvider>
       <BrowserRouter>
-        <React.StrictMode>
           <Layout />
-        </React.StrictMode>
       </BrowserRouter>
     </LanguageProvider>
   );
