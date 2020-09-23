@@ -18,7 +18,7 @@ export default function App() {
   return (
     <LanguageProvider>
       <BrowserRouter>
-          <Layout />
+        <Layout />
       </BrowserRouter>
     </LanguageProvider>
   );

@@ -8,5 +8,13 @@ export const en = {
     채널순위: 'Channel Ranking',
     영상순위: 'Video Ranking',
     인사이트: 'Insight',
-  }
+  },
+  insight_menu: {
+    전체: "all",
+    랭킹: "rank",
+    이슈: "isue",
+    트렌드: "trend",
+    마케팅: "marketing",
+    인사이드: "inside"
+  },
 }

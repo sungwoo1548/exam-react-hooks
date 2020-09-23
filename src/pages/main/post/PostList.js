@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link, Route, Switch, useLocation } from 'react-router-dom';
+import { Text } from '../../../language/Text';
 import queryString from 'query-string';
 
 
@@ -28,7 +29,7 @@ export default function PostList() {
       <div>
         {insight.map(category => (
           <Link key={category.value} to={`?category=${category.value}`} style={{ margin: "5px", color: category.value == query.category && "red" }}>
-            {category.label}
+            <Text location="insight_menu" word={category.value} toUpperCase/>
           </Link>
         ))}
       </div>
