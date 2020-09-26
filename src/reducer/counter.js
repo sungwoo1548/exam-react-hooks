@@ -1,15 +1,33 @@
+import { delay, put, takeEvery, takeLatest } from 'redux-saga/effects';
 /* 액션 타입 만들기 */
 // Ducks 패턴을 따를땐 액션의 이름에 접두사를 넣어주세요.
 // 이렇게 하면 다른 모듈과 액션 이름이 중복되는 것을 방지 할 수 있습니다.
 const SET_DIFF = 'counter/SET_DIFF';
 const INCREASE = 'counter/INCREASE';
 const DECREASE = 'counter/DECREASE';
+const INCREASE_ASYNC = 'counter/INCREASE_ASYNC';
+const DECREASE_ASYNC = 'counter/DECREASE_ASYNC';
 
 /* 액션 생성함수 만들기 */
 // 액션 생성함수를 만들고 export 키워드를 사용해서 내보내주세요.
 export const setDiff = diff => ({ type: SET_DIFF, diff });
 export const increase = () => ({ type: INCREASE });
 export const decrease = () => ({ type: DECREASE });
+export const increaseAsync = () => ({ type: INCREASE_ASYNC });
+export const decreaseAsync = () => ({ type: DECREASE_ASYNC });
+
+function* increaseSaga() {
+  yield delay(1000)
+  yield put(increase());
+}
+function* decreaseSaga() {
+  yield delay(1000)
+  yield put(decrease());
+}
+export function* counterSaga() {
+  yield takeEvery(INCREASE_ASYNC, increaseSaga); // 모든 INCREASE_ASYNC 액션을 처리
+  yield takeLatest(DECREASE_ASYNC, decreaseSaga); // 가장 마지막으로 디스패치된 DECREASE_ASYNC 액션만을 처리
+}
 
 /* 초기 상태 선언 */
 const initialState = {
