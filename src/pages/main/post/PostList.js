@@ -28,7 +28,7 @@ export default function PostList() {
       {`인사이트 > ${query.category}`}
       <div>
         {insight.map(category => (
-          <Link key={category.value} to={`?category=${category.value}`} style={{ margin: "5px", color: category.value == query.category && "red" }}>
+          <Link key={category.value} to={`?category=${category.value}`} style={{ margin: "5px", color: category.value === query.category && "red" }}>
             <Text location="insight_menu" word={category.value} toUpperCase/>
           </Link>
         ))}
