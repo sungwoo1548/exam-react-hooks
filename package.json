@@ -3,6 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.2.1",
+    "graphql": "^15.3.0",
     "query-string": "^6.13.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -35,5 +37,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/sungwoo1548/exam-react-hooks.git",
+  "author": "sungwoo1548 <swo1548@gmail.com>",
+  "license": "MIT"
 }
